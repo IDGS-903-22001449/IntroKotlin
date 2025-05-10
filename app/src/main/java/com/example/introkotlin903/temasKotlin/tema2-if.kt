@@ -10,4 +10,15 @@ fun main (){
     }else{
         println("No debe pagar impuestos")
     }
+
+
+    // when KOTLIN
+    //val mes = "1"
+    when(val mes = "1"){
+        "1"-> println("Enero")
+        "2"-> println("Febrero")
+        "3"-> println("Marzo")
+        "4"-> println("Abril")
+        else -> println("Mes no valido")
+    }
 }
