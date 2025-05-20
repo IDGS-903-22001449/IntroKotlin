@@ -13,11 +13,20 @@
         android:theme="@style/Theme.IntroKotlin903"
         tools:targetApi="31">
         <activity
-            android:name=".practica1.resultado"
+            android:name=".practicaCinepolis.CinepolisActivity"
             android:exported="false" />
         <activity
+            android:name=".practica2.OperasActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
             android:name=".practica1.saludoActivity"
-            android:exported="true">
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".MenuActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,16 +34,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.IntroKotlin903">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".practica1.resultado"
+            android:exported="false" />
     </application>
 
 </manifest>

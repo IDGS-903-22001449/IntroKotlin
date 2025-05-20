@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">IntroKotlin903</string>
+    <string name="app_name">Intro Kotlin903</string>
     <string name="hola_mundo">Hola mundo</string>
-    <string name="nombre">Escribe tu nombre</string>
+    <string name="button_text">Button</string>
+    <string name="escribe_tu_nombre">Escribe tu nombre</string>
+    <string name="ejemplo_1">Ejemplo 1</string>
 </resources>
