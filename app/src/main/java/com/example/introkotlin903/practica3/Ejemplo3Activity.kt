@@ -37,6 +37,7 @@ class Ejemplo3Activity : AppCompatActivity() {
             insets
         }
 
+    }
         fun controlar(view: android.view.View){
             val valorIngresado:String = ed1.text.toString()
             val valor = valorIngresado.toInt()
@@ -45,11 +46,10 @@ class Ejemplo3Activity : AppCompatActivity() {
                 val notificacion = Toast.makeText(this, "Correcto", Toast.LENGTH_LONG)
                 notificacion.show()
             }else{
-                val notificacion = Toast.makeText(this, "Incorrecto", Toast.LENGTH_SHORT)
+                val notificacion = Toast.makeText(this, "Incorrecto", Toast.LENGTH_LONG)
                 notificacion.show()
             }
         }
-    }
 
 
 

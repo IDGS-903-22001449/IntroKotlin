@@ -10,8 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.introkotlin903.R
 import java.io.FileNotFoundException
-import java.nio.file.Files.lines
-import java.security.cert.Extension
+import android.widget.Toast
 
 class archivosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,26 +25,54 @@ class archivosActivity : AppCompatActivity() {
         val inputText = findViewById<EditText>(R.id.inputText)
 
         btnGuardar.setOnClickListener {
-            val texto = inputText.text.toString()+" \n"
-            //val archivo = openFileInput("datos.txt", MODE_APPEND)
+            val texto = inputText.text.toString()
+            if (texto.isBlank()) {
+                Toast.makeText(this, "Ingrese texto para guardar", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             try {
                 openFileOutput("datos.txt", MODE_APPEND).use {
-                    it.write(texto.toByteArray())
+                    it.write("$texto\n".toByteArray())
+                    Toast.makeText(this, "Texto guardado", Toast.LENGTH_SHORT).show()
+                    inputText.text.clear() // Limpiar el campo después de guardar
                 }
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 e.printStackTrace()
+                Toast.makeText(this, "Error al guardar: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
 
         btnLeer.setOnClickListener {
             try {
-                val contenido = openFileInput("datos.txt").bufferedReader().useLines { lines ->
-                    lines.joinToString { " \n" }
+                val contenido = openFileInput("datos.txt").bufferedReader().use { reader ->
+                    val sb = StringBuilder()
+                    var line: String?
+                    while (reader.readLine().also { line = it } != null) {
+                        sb.append(line).append("\n")
+                    }
+                    sb.toString()
                 }
                 outPutText.text = contenido
-            }catch (e: FileNotFoundException){
-                outPutText.text="Archivo no encontrado"
-            }catch (e: Exception){e.printStackTrace()}
+            } catch (e: FileNotFoundException) {
+                outPutText.text = "Archivo no encontrado"
+                Toast.makeText(this, "Archivo no encontrado", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                outPutText.text = "Error al leer archivo"
+                Toast.makeText(this, "Error al leer: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        btnBorrar.setOnClickListener {
+            try {
+                deleteFile("datos.txt")
+                outPutText.text = ""
+                Toast.makeText(this, "Archivo borrado", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(this, "Error al borrar: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
