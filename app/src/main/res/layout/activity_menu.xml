@@ -29,4 +29,31 @@
         android:textColor="#757575"
         app:layout_constraintTop_toTopOf="@+id/btn1" />
 
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:text="Cinepolis"
+        android:textColor="#757575"
+        app:layout_constraintTop_toTopOf="@+id/btn1" />
+
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:text="Ejemplo 3"
+        android:textColor="#757575"
+        app:layout_constraintTop_toTopOf="@+id/btn1" />
+
+    <Button
+        android:id="@+id/btn5"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:text="Ejemplo 4"
+        android:textColor="#757575"
+        app:layout_constraintTop_toTopOf="@+id/btn1" />
+
 </LinearLayout>
