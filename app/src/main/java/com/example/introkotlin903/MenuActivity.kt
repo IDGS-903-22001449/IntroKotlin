@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.introkotlin903.Diccionario.MenuDiccionarioActivity
 import com.example.introkotlin903.practica1.saludoActivity
 import com.example.introkotlin903.practica2.OperasActivity
 import com.example.introkotlin903.practica3.Ejemplo3Activity
@@ -24,12 +25,14 @@ class MenuActivity : AppCompatActivity() {
         val btnCinepolis = findViewById<Button>(R.id.btn3)
         val btnEjemplo3 = findViewById<Button>(R.id.btn4)
         val btnEjemplo5 = findViewById<Button>(R.id.btn5)
+        val btnDiccionario = findViewById<Button>(R.id.btn6)
 
         btnSaludo.setOnClickListener {navigateToSaludo()}
         btnCalc.setOnClickListener {navigateToCalc()}
         btnCinepolis.setOnClickListener {navigateToCinepolis()}
         btnEjemplo3.setOnClickListener {navigateToEjemplo3()}
         btnEjemplo5.setOnClickListener {navigateToArchivos()}
+        btnDiccionario.setOnClickListener {navigateToDiccionario()}
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -57,5 +60,9 @@ class MenuActivity : AppCompatActivity() {
     private fun navigateToArchivos(){
         val intent5 = Intent(this, archivosActivity::class.java)
         startActivity(intent5)
+    }
+    private fun navigateToDiccionario(){
+        val intent6 = Intent(this, MenuDiccionarioActivity::class.java)
+        startActivity(intent6)
     }
 }

@@ -35,7 +35,7 @@ class archivosActivity : AppCompatActivity() {
                 openFileOutput("datos.txt", MODE_APPEND).use {
                     it.write("$texto\n".toByteArray())
                     Toast.makeText(this, "Texto guardado", Toast.LENGTH_SHORT).show()
-                    inputText.text.clear() // Limpiar el campo después de guardar
+                    inputText.text.clear()
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
